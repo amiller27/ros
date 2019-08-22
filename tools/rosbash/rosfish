@@ -701,7 +701,7 @@ function _roscomplete_rosbag
                 set replaced_empty 0
             end
 
-            set opts $opts (_rosfind (string split --max 1 --right / "$arg")[1]/ -mindepth 1 -maxdepth 1 -name "*.bag" 2> /dev/null)
+            set opts $opts (_rosfind (string split --max 1 --right / "$arg")[1]/ -mindepth 1 -maxdepth 1 -name "*.bag" -or -name "*.bag.active" 2> /dev/null)
             set opts $opts (__fish_complete_directories "$arg")
             if test $replaced_home = 0
                 set -l fixed_opts
